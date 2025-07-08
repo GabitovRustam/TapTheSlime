@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://ciaepr71qif1o"]
+
+[ext_resource type="Script" uid="uid://dxjkv8r7ptcor" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bdpjbp54pgpi5" path="res://slime.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://yx0ay56bkles" path="res://camera_pivot_2.gd" id="4_1bvp3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(0.615686, 0.8, 0.615686, 1)
+metallic_specular = 0.75
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+material = SubResource("StandardMaterial3D_1bvp3")
+size = Vector3(2.5, 0.1, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+size = Vector3(2.5, 0.1, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_color = Color(0.615686, 0.8, 0.615686, 1)
+metallic_specular = 0.75
+
+[sub_resource type="BoxMesh" id="BoxMesh_1bvp3"]
+material = SubResource("StandardMaterial3D_h2yge")
+size = Vector3(0.1, 2.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+specular_mode = 1
+albedo_color = Color(0.615686, 0.8, 0.615686, 1)
+metallic_specular = 0.75
+
+[sub_resource type="BoxMesh" id="BoxMesh_7mycd"]
+material = SubResource("StandardMaterial3D_lquwl")
+size = Vector3(0.1, 0.1, 1.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+albedo_color = Color(0.172549, 0.25098, 0.435294, 1)
+metallic_specular = 0.75
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5vw27"]
+material = SubResource("StandardMaterial3D_272bh")
+top_radius = 0.02
+bottom_radius = 0.0
+height = 0.1
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_0xm2m")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.476894, -0.570289, -0.668837, 0.537305, 0.791356, -0.291647, 0.695611, -0.220285, 0.683812, -2.0543, 0.519213, 1.56609)
+light_color = Color(1, 1, 0.741176, 1)
+light_energy = 0.2
+
+[node name="Slime" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_0xm2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D"]
+shape = SubResource("BoxShape3D_h2yge")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.301291, -0.404497, 0.863485, -0.244699, 0.842439, 0.48002, -0.9216, -0.355919, 0.154839, 2.4157, 1.79957, 0.554868)
+light_energy = 0.5
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -88.0
+offset_right = 119.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Счет: 0 "
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -1.2)
+mesh = SubResource("BoxMesh_1bvp3")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -0.6)
+mesh = SubResource("BoxMesh_7mycd")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+mesh = SubResource("CylinderMesh_5vw27")
+
+[node name="cameraPivot2" type="Node3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+script = ExtResource("4_1bvp3")
+
+[node name="Camera3D" type="Camera3D" parent="cameraPivot2"]
+transform = Transform3D(1, -2.32831e-10, -1.86265e-09, 2.32831e-10, 1, -1.49012e-08, 1.86265e-09, 1.49012e-08, 1, 0, 0, 3)
