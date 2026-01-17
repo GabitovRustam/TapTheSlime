@@ -11,19 +11,29 @@ config_version=5
 [application]
 
 config/name="TapTheSlime"
+config/version="1.0.3"
 run/main_scene="uid://ciaepr71qif1o"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="uid://di3obm3eckw8a"
 config/icon="uid://di3obm3eckw8a"
 
 [autoload]
 
-Music="*res://music.tscn"
+Music="*res://scenes/music.tscn"
+GameManager="*res://scripts/game_manager.gd"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=1280
+window/size/viewport_width=450
+window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 window/handheld/orientation=1
+
+[gui]
+
+theme/custom_font="uid://cnprb1mrtgvm5"
 
 [rendering]
 
