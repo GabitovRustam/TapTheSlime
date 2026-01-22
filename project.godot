@@ -11,11 +11,11 @@ config_version=5
 [application]
 
 config/name="TapTheSlime"
-config/version="1.0.3"
+config/version="1.0.4"
 run/main_scene="uid://ciaepr71qif1o"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/bg_color=Color(1, 1, 1, 1)
-boot_splash/image="uid://di3obm3eckw8a"
+boot_splash/bg_color=Color(0.0509804, 0.121569, 0.262745, 1)
+boot_splash/image="uid://hvsf4g416m46"
 config/icon="uid://di3obm3eckw8a"
 
 [autoload]
