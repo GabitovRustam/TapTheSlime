@@ -1,0 +1,276 @@
+[gd_scene load_steps=13 format=3 uid="uid://dmpmbfdup4gq0"]
+
+[ext_resource type="Script" uid="uid://btvs6gajjbmri" path="res://scripts/product.gd" id="1_80c7e"]
+[ext_resource type="Texture2D" uid="uid://dhoj60f0pcfr2" path="res://textures/Shop/panel_brown.svg" id="2_qirud"]
+[ext_resource type="Texture2D" uid="uid://b8daeasl5t03n" path="res://textures/Shop/panel_border_grey_detail.svg" id="2_u8fb1"]
+[ext_resource type="AudioStream" uid="uid://babclp442a0d2" path="res://sounds/buy.mp3" id="5_yj2y5"]
+[ext_resource type="AudioStream" uid="uid://vl733u0ifa6f" path="res://sounds/activate.mp3" id="6_y5nxk"]
+[ext_resource type="AudioStream" uid="uid://ci04mie20xgt7" path="res://sounds/deactivate.mp3" id="7_cpqmc"]
+[ext_resource type="Texture2D" uid="uid://b7nlaewjpjdl8" path="res://textures/Shop/panel_grey_bolts_detail_b.svg" id="8_auxoh"]
+[ext_resource type="Texture2D" uid="uid://cifyyt1duh740" path="res://textures/Shop/banner_modern.svg" id="9_auxoh"]
+[ext_resource type="Texture2D" uid="uid://bihr6y5hh1pxe" path="res://textures/Shop/button_brown_close.svg" id="10_f503s"]
+[ext_resource type="AudioStream" uid="uid://c0sj4l8ib1lt7" path="res://sounds/close.mp3" id="10_p4ngh"]
+[ext_resource type="AudioStream" uid="uid://lc1xt3s2g2nm" path="res://sounds/popup.mp3" id="12_so3cy"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_f503s"]
+grow_begin = 125.0
+grow_end = 125.0
+thickness = 3
+
+[node name="Product" type="Control"]
+custom_minimum_size = Vector2(100, 140)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_80c7e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -29.5
+offset_right = 16.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("2_u8fb1")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Desc" type="Button" parent="VBoxContainer/NinePatchRect/MarginContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("2_qirud")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buy" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Применить"
+
+[node name="BuySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yj2y5")
+
+[node name="ActivateSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_y5nxk")
+
+[node name="DeactivateSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cpqmc")
+
+[node name="Popup" type="Popup" parent="."]
+transparent_bg = true
+initial_position = 1
+size = Vector2i(350, 500)
+always_on_top = true
+transparent = true
+
+[node name="Details" type="Control" parent="Popup"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/Details"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Popup/Details/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("8_auxoh")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/Details/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_right = 64
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 7
+
+[node name="Label" type="Label" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer2/MarginContainer"]
+z_index = 2
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 20
+text = "Описание"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer2"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("9_auxoh")
+expand_mode = 5
+
+[node name="MarginContainer3" type="MarginContainer" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("2_u8fb1")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer3/HBoxContainer/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ProductIcon" type="Button" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer3/HBoxContainer/NinePatchRect/MarginContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("2_qirud")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ProductName" type="Label" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer3/HBoxContainer"]
+z_index = 2
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "product name "
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_f503s")
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 7
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="ProductDetails" type="Label" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+z_index = 2
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "product details"
+horizontal_alignment = 3
+autowrap_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Buy" type="Button" parent="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4"]
+z_index = 2
+layout_mode = 2
+text = "Применить"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Popup"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_constants/margin_right = 10
+
+[node name="Close" type="Button" parent="Popup/MarginContainer3"]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+icon = ExtResource("10_f503s")
+flat = true
+icon_alignment = 1
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="Popup"]
+stream = ExtResource("10_p4ngh")
+
+[node name="PopupSound" type="AudioStreamPlayer" parent="Popup"]
+stream = ExtResource("12_so3cy")
+
+[connection signal="pressed" from="VBoxContainer/NinePatchRect/MarginContainer/Desc" to="." method="_on_desc_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="Popup/Details/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/Buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer3/Close" to="." method="_on_close_pressed"]

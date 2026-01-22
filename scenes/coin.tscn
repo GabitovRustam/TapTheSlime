@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkakun2jvo26r"]
+
+[ext_resource type="Script" uid="uid://dsr6tdtkqn20v" path="res://scripts/coin.gd" id="1_11l1o"]
+[ext_resource type="AudioStream" uid="uid://b1bkemtcawbyx" path="res://sounds/new_coint.mp3" id="2_d14el"]
+[ext_resource type="AudioStream" uid="uid://cq0nydxc0im11" path="res://sounds/get_coint.mp3" id="3_1ikuy"]
+[ext_resource type="PackedScene" uid="uid://bxek3lkhwdyj8" path="res://models/coin/scene.gltf" id="4_d14el"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7riw"]
+transparency = 1
+albedo_color = Color(1, 0.843137, 0.298039, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kywx8"]
+material = SubResource("StandardMaterial3D_v7riw")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.1
+radial_segments = 16
+rings = 2
+
+[node name="coin" type="Node3D"]
+script = ExtResource("1_11l1o")
+
+[node name="new_coin_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_d14el")
+
+[node name="get_coin_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1ikuy")
+
+[node name="coin_mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_kywx8")
+skeleton = NodePath("")
+
+[node name="coin_model" parent="coin_mesh" instance=ExtResource("4_d14el")]
+
+[connection signal="finished" from="get_coin_audio" to="." method="_on_get_coin_audio_finished"]

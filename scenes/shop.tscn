@@ -1,0 +1,449 @@
+[gd_scene load_steps=30 format=3 uid="uid://ciu2wph3s5qjn"]
+
+[ext_resource type="Script" uid="uid://ch8xvg1a8xh5w" path="res://scripts/shop.gd" id="1_gmb2m"]
+[ext_resource type="Texture2D" uid="uid://dhoj60f0pcfr2" path="res://textures/Shop/panel_brown.svg" id="2_nvf5v"]
+[ext_resource type="Texture2D" uid="uid://clcsgdaoa8gr7" path="res://textures/Shop/button_red_close.svg" id="3_n3f17"]
+[ext_resource type="Texture2D" uid="uid://cp137o5yyqiet" path="res://textures/Shop/banner_classic_curtain.svg" id="3_nvf5v"]
+[ext_resource type="Texture2D" uid="uid://bbyutrahlv7db" path="res://textures/Shop/MagicalBag.png" id="5_24it5"]
+[ext_resource type="Texture2D" uid="uid://beudgjl4u5a2a" path="res://textures/Shop/Book.png" id="7_j14q8"]
+[ext_resource type="Texture2D" uid="uid://bf6yox7jsy5vd" path="res://textures/Shop/AmuletRich.png" id="8_5u241"]
+[ext_resource type="Texture2D" uid="uid://sencg8fcl4on" path="res://textures/Shop/Amulet.png" id="8_7mqwv"]
+[ext_resource type="Texture2D" uid="uid://c4j1h3o8ympeg" path="res://textures/Shop/GeneratorDouble.png" id="9_5u241"]
+[ext_resource type="Texture2D" uid="uid://cuglmnu0g6jli" path="res://textures/Shop/GrowPotion.png" id="9_gobkm"]
+[ext_resource type="Texture2D" uid="uid://cvfu6wsj4bqod" path="res://textures/Shop/AK.png" id="9_xqmyw"]
+[ext_resource type="Texture2D" uid="uid://dtvvlb6gc3ota" path="res://textures/Shop/GrowStone.png" id="10_gobkm"]
+[ext_resource type="AudioStream" uid="uid://c0sj4l8ib1lt7" path="res://sounds/close.mp3" id="11_sw5c6"]
+[ext_resource type="AudioStream" uid="uid://babclp442a0d2" path="res://sounds/buy.mp3" id="12_44xle"]
+[ext_resource type="Texture2D" uid="uid://btigt3w2tdu6m" path="res://textures/Shop/PowerRing.png" id="13_pqync"]
+[ext_resource type="Texture2D" uid="uid://b2ycrpeydfk88" path="res://textures/Shop/DoubleClick.png" id="14_yuijs"]
+[ext_resource type="Texture2D" uid="uid://ck6ec7x4e7u4d" path="res://textures/Shop/Echos.png" id="15_yuijs"]
+[ext_resource type="Texture2D" uid="uid://cp6sobk0qrdcg" path="res://textures/Shop/PocketMultyply.png" id="16_aa4hd"]
+[ext_resource type="Texture2D" uid="uid://cfe6dpipjcrbr" path="res://textures/Shop/UnlimitedBug.png" id="17_68utx"]
+[ext_resource type="Texture2D" uid="uid://cnimovr4wocuh" path="res://textures/Shop/Cointer.png" id="18_ru2r1"]
+[ext_resource type="Texture2D" uid="uid://dbiy84x8u2umm" path="res://textures/Shop/DoubleTreasury.png" id="19_lxs01"]
+[ext_resource type="Texture2D" uid="uid://cqs0nxgmmq0q7" path="res://textures/Shop/Cristal.png" id="20_6nbx6"]
+[ext_resource type="Texture2D" uid="uid://b3i33amrkymbn" path="res://textures/Shop/FortuneWallet.png" id="21_mihhf"]
+[ext_resource type="Texture2D" uid="uid://dqfeewaxmamwe" path="res://textures/Shop/LipreconNet.png" id="22_5lclc"]
+[ext_resource type="Texture2D" uid="uid://dcq6u46i32o40" path="res://textures/Shop/DoubleSeal.png" id="23_ouqob"]
+[ext_resource type="Texture2D" uid="uid://dlf7ob7t6280" path="res://textures/Shop/HyperWallet.png" id="24_ouqob"]
+[ext_resource type="PackedScene" uid="uid://dmpmbfdup4gq0" path="res://scenes/product.tscn" id="41_a54l6"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nvf5v"]
+grow_begin = -15.0
+grow_end = -15.0
+thickness = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1v8qu"]
+
+[node name="Shop" type="Popup"]
+transparent_bg = true
+initial_position = 1
+size = Vector2i(450, 800)
+visible = true
+always_on_top = true
+transparent = true
+script = ExtResource("1_gmb2m")
+
+[node name="Shop" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Shop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Shop/MarginContainer"]
+layout_mode = 2
+mouse_filter = 0
+texture = ExtResource("2_nvf5v")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_right = 50
+
+[node name="TextureRect" type="TextureRect" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer2"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_nvf5v")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 7
+
+[node name="Label" type="Label" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer2/MarginContainer"]
+z_index = 2
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Магазин"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "1💎"
+horizontal_alignment = 1
+
+[node name="BuyGem" type="Button" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1200🟡"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "1000🟡"
+horizontal_alignment = 1
+
+[node name="SellGem" type="Button" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1💎"
+
+[node name="MarginContainer" type="MarginContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 20
+
+[node name="Coins" type="Label" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Монет: 🟡"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nvf5v")
+
+[node name="TabContainer" type="TabContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 24
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1v8qu")
+current_tab = 0
+
+[node name="Магазин" type="MarginContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Products" type="HFlowContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 30
+last_wrap_alignment = 1
+
+[node name="СС1" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Энциклопедия Разводчика Слаймов"
+product_icon = ExtResource("7_j14q8")
+product_decription = "Том бесценных знаний для истинного мастера слаймоводства. Этот увесистый фолиант, переплетённый в мягкую слизь радужного слайма, хранит в себе тысячелетний опыт лучших разводчиков. От древних трактатов до новейших открытий — здесь собрано всё, что нужно знать о физиологии, генетике и рыночной ценности этих удивительных существ.
+Увеличивает доход от каждого слайма в 2 раза."
+cost_coins = 59
+product_code = "CC1"
+
+[node name="СС2" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Амулет богатства слаймов"
+product_icon = ExtResource("8_5u241")
+product_decription = "Говорят, что первый такой амулет был создан древним слаймоведом, который провёл ритуал единения с Великим Слаймовым Духом. В награду за преданность тот наделил артефакт силой умножать прибыль — но лишь для тех, кто заботится о своих слаймах с искренней любовью.
+Увеличивает доход от каждого слайма в 2 раза."
+cost_coins = 529
+product_code = "CC2"
+
+[node name="СС3" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Генератор Двойной Выгоды"
+product_icon = ExtResource("9_5u241")
+product_decription = "Этот магический аппарат был разработан талантливыми инженерами для повышения эффективности добычи ресурсов. При активации устройство автоматически удваивает награды, полученные за выполнение заданий, добычу материалов или участие в боях.
+Увеличивает доход от каждого слайма в 2 раза."
+cost_coins = 4499
+product_code = "CC3"
+
+[node name="GS1" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Амулет Быстро́го Разви́тия"
+product_icon = ExtResource("8_7mqwv")
+product_decription = "Древний магический артефакт, созданный мудрыми алхимиками для ускорения процесса выращивания редких существ. Амулет станет незаменимым спутником каждого фермера или заводчика, стремящегося вывести идеальное потомство.
+Ускоряет рост слайма в 2 раза."
+cost_coins = 19
+product_code = "GS1"
+
+[node name="GS2" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Зелье Удвоенного Роста"
+product_icon = ExtResource("9_gobkm")
+product_decription = "Это редкое зелье было создано опытными алхимиками специально для фермеров и владельцев слаймов, желающих ускорить процесс выращивания своих питомцев. Зелье безопасно для здоровья слаймов и идеально подходит для тех, кто хочет добиться быстрых результатов в разведении и выращивании любимых питомцев.
+Ускоряет рост слайма в 2 раза."
+cost_coins = 99
+product_code = "GS2"
+
+[node name="GS3" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Камень Ускорителя"
+product_icon = ExtResource("10_gobkm")
+product_decription = "Этот загадочный минерал, обладающий уникальной способностью усиливать жизненные процессы, стал настоящим открытием среди фермеров и разводчиков слаймов. Просто поместив кристалл рядом с местом обитания слаймов, вы заметите, как быстро ваши любимцы достигнут взрослой формы, готовясь показать всю свою силу и возможности.
+Ускоряет рост слайма в 2 раза."
+cost_coins = 999
+product_code = "GS3"
+
+[node name="CP1" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Перст силы"
+product_icon = ExtResource("13_pqync")
+product_decription = "«Тот, кто носит Перст, чувствует: мир поддаётся. Камни крошатся под ладонью, двери срываются с петель, а враги падают от одного тычка. Но помни: титановая мощь жаждет разрушения. Не дай ей поглотить тебя».
+— Из свитков ордена Каменных Кулаков.
+Усиливает силу нажатия в 2 раза."
+cost_coins = 9
+product_code = "CP1"
+
+[node name="CP2" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Двойной толчок"
+product_icon = ExtResource("14_yuijs")
+product_decription = "Древний боевой артефакт, созданный мастерами‑инженерами эпохи Железных Войн. Активируется при сжатии в кулаке — высвобождает накопленную кинетическую энергию в виде двойного ударного импульса. Легенды гласят, что такие жетоны выдавали элитным бойцам для прорыва вражеских построений.
+Усиливает силу нажатия в 2 раза."
+cost_coins = 179
+product_code = "CP2"
+
+[node name="CP3" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Эхо прикосновения"
+product_icon = ExtResource("15_yuijs")
+product_decription = "Изящное кольцо из серебристо‑голубого металла, словно сотканного из лунного света. В центре — полупрозрачный кристалл, внутри которого пульсирует призрачное сияние, напоминающее отголоски прикосновений. При надевании ощущается едва уловимая вибрация — будто чьи‑то далёкие касания отзываются в памяти камня.
+Усиливает силу нажатия в 2 раза."
+cost_coins = 979
+product_code = "CP3"
+
+[node name="AK" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Автоликвидатор слизи"
+product_icon = ExtResource("9_xqmyw")
+product_decription = "Разработан инженерами корпорации «Чистый контур» для очистки затопленных биолабораторий. Первые партии случайно попали в зону «Слизневых пустошей», где быстро стали ценным снаряжением для охотников.
+Лопает слизь автоматически по окончании ее роста."
+cost_coins = 1699
+cost_gems = 1
+product_code = "AK"
+
+[node name="MC1" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Магический Рюкзак Пространства"
+product_icon = ExtResource("5_24it5")
+product_decription = "По легенде, этот рюкзак был создан древним магом-путешественником, который устал носить сотни мешочков с сокровищами. Он вплёл в ткань осколок межпространственного кристалла, навсегда изменив законы вместимости.
+Увеличивает вместимость копилки в 2 раза. 
+"
+cost_coins = 49
+product_code = "MC1"
+
+[node name="MC2" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Карман‑усилитель"
+product_icon = ExtResource("16_aa4hd")
+product_decription = "Древний артефакт, созданный мастерами‑иллюзионистами для торговцев и путешественников. Позволяет расширить внутреннее пространство хранилищ, не меняя их внешнего вида. Легенды гласят, что первые «Карман‑усилители» были изготовлены из осколков магического зеркала, способного удваивать отражения.
+Увеличивает вместимость копилки в 2 раза."
+cost_coins = 119
+product_code = "MC2"
+
+[node name="MC3" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Бездонный кошель"
+product_icon = ExtResource("17_68utx")
+product_decription = "Древний артефакт, созданный алхимиками‑нумизматами в эпоху Великого Рассвета. Согласно легендам, кошелёк был выкован из кожи мифического зверя, питавшегося самоцветами, а его внутренняя сущность связана с карманным измерением, где время течёт иначе. Носящий этот предмет замечает, что монеты словно «растворяются» внутри, освобождая место для новых сокровищ.
+Увеличивает вместимость копилки в 2 раза."
+cost_coins = 199
+product_code = "MC3"
+
+[node name="MC4" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Пространственный монетник"
+product_icon = ExtResource("18_ru2r1")
+product_decription = "Древний артефакт, созданный мастерами‑архимагами в эпоху Межпространственных Войн. Использует принципы карманных измерений для хранения ценностей: монеты не просто складываются в ёмкость, а переносятся в параллельное пространство с изменёнными законами физики. Легенды гласят, что первый «Пространственный монетник» был выкован из осколка межмирового портала, захваченного во время битвы титанов.
+Увеличивает вместимость копилки в 2 раза."
+cost_coins = 449
+product_code = "MC4"
+
+[node name="MC5" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Двойная сокровищница"
+product_icon = ExtResource("19_lxs01")
+product_decription = "Легендарный артефакт, созданный древними хранителями богатств в эпоху Великих Караванов. Согласно преданиям, ларец выкован из сердца затонувшего метеорита, а его внутренняя структура повторяет устройство межпространственных хранилищ древних цивилизаций. «Двойная сокровищница» не просто увеличивает вместимость — она дублирует пространство, создавая параллельный отсек для ценностей.
+Увеличивает вместимость копилки в 2 раза."
+cost_coins = 779
+product_code = "MC5"
+
+[node name="MC6" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Кристалл накопления"
+product_icon = ExtResource("20_6nbx6")
+product_decription = "Древний артефакт, созданный алхимиками‑нумизматами в эпоху Великого Рассвета. По легенде, кристалл вырос в сердце заброшенной сокровищницы, впитывая энергию накопленных веков. Его структура повторяет устройство межпространственных хранилищ: каждая грань отражает отдельный «слой» пространства, где хранятся монеты. Носящий этот предмет замечает, что деньги словно «растворяются» внутри кристалла, освобождая место для новых поступлений.
+Увеличивает вместимость копилки в 2 раза."
+cost_coins = 1599
+product_code = "MC6"
+
+[node name="MC7" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Кошель Фортуны"
+product_icon = ExtResource("21_mihhf")
+product_decription = "Древний артефакт, овеянный легендами. Говорят, что первый «Кошель Фортуны» был создан самим богом удачи для смертного, который сумел рассмешить его. С тех пор предмет переходит от владельца к владельцу, выбирая тех, кто не боится рисковать, но помнит о ценности каждого гроша. Кошелёк не просто хранит монеты — он притягивает их, словно магнит, и умеет «запоминать» щедрость хозяина.
+Увеличивает вместимость копилки в 2 раза."
+cost_coins = 3229
+cost_gems = 1
+product_code = "MC7"
+
+[node name="MC8" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Сеть Лепрекона"
+product_icon = ExtResource("22_5lclc")
+product_decription = "Древний артефакт, созданный лепреконами — хранителями золотых кладов. По легендам, сеть плетётся из лунного света и паутины волшебных грибов, а её нити пропитаны магией иллюзий. Используется для поимки «блуждающих монет» — монет, которые сами притягиваются к удачливым искателям. Настоящий мастер может с её помощью выхватить сокровище прямо из‑под носа неудачливого соперника.
+Увеличивает вместимость копилки в 2 раза."
+cost_coins = 6499
+cost_gems = 2
+product_code = "MC8"
+
+[node name="MC9" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Печать двойного богатства"
+product_icon = ExtResource("23_ouqob")
+product_decription = "Древний артефакт, созданный мастерами‑нумизматами в эпоху Великого Рассвета. По преданию, печать была выточена из камня, упавшего с небес в ночь, когда сошлись звёзды богатства. Её сила основана на принципе зеркального отражения: каждое поступившее богатство дублируется в параллельном измерении, создавая неиссякаемый резерв.
+Увеличивает вместимость копилки в 2 раза."
+cost_coins = 12999
+cost_gems = 3
+product_code = "MC9"
+
+[node name="MC10" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Магазин/ScrollContainer/Products" instance=ExtResource("41_a54l6")]
+layout_mode = 2
+product_name = "Гиперкошелёк"
+product_icon = ExtResource("24_ouqob")
+product_decription = "Разработан для элитных трейдеров и авантюристов, работающих с крупными объёмами валюты. Использует квантовые алгоритмы для оптимизации хранения и перемещения средств: монеты не просто складываются — они компрессируются в микро‑измерения, освобождая место для новых поступлений.
+Увеличивает вместимость копилки в 2 раза."
+cost_coins = 25999
+cost_gems = 4
+product_code = "MC10"
+
+[node name="Рюкзак" type="MarginContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Рюкзак"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Items" type="HFlowContainer" parent="Shop/MarginContainer/NinePatchRect/VBoxContainer/TabContainer/Рюкзак/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 30
+last_wrap_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Shop"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 40
+
+[node name="Close" type="Button" parent="Shop/MarginContainer3"]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+icon = ExtResource("3_n3f17")
+flat = true
+icon_alignment = 1
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="Shop"]
+stream = ExtResource("11_sw5c6")
+
+[node name="BuySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_44xle")
+
+[connection signal="pressed" from="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/BuyGem" to="." method="_on_buy_gem_pressed"]
+[connection signal="pressed" from="Shop/MarginContainer/NinePatchRect/VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer/SellGem" to="." method="_on_sell_gem_pressed"]
+[connection signal="pressed" from="Shop/MarginContainer3/Close" to="." method="_on_close_pressed"]
+[connection signal="finished" from="Shop/CloseSound" to="." method="_on_close_sound_finished"]

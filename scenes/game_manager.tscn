@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bal1myaaift5h"]
+
+[ext_resource type="Script" uid="uid://cmevses66ys2f" path="res://scripts/game_manager.gd" id="1_70yv6"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_70yv6")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

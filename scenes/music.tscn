@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0vvbhytuwjtd"]
+
+[ext_resource type="AudioStream" uid="uid://cvst1frapwjxq" path="res://sounds/Beloved(chosic.com).mp3" id="1_ibx2e"]
+[ext_resource type="Script" uid="uid://b1sx7285u53if" path="res://scripts/music.gd" id="2_qnihg"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_ibx2e")
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_qnihg")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

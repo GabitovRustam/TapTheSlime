@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://56j3bbed8jdp"]
+
+[ext_resource type="Script" uid="uid://f0x81gsvl7a6" path="res://scripts/gem.gd" id="1_rj4j3"]
+[ext_resource type="AudioStream" uid="uid://c2imffqkyvpec" path="res://sounds/new_gem.mp3" id="2_rj4j3"]
+[ext_resource type="AudioStream" uid="uid://cuxdix6qap5n6" path="res://sounds/get_gem.mp3" id="3_dn3vp"]
+[ext_resource type="PackedScene" uid="uid://c2po37wxeowko" path="res://models/gem/scene.gltf" id="4_rj4j3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7riw"]
+transparency = 1
+albedo_color = Color(1, 0.843137, 0.298039, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kywx8"]
+material = SubResource("StandardMaterial3D_v7riw")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.1
+radial_segments = 16
+rings = 2
+
+[node name="gem" type="Node3D"]
+script = ExtResource("1_rj4j3")
+
+[node name="new_gem_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rj4j3")
+
+[node name="get_gem_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dn3vp")
+
+[node name="gem_mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_kywx8")
+skeleton = NodePath("")
+
+[node name="gem_model" parent="gem_mesh" instance=ExtResource("4_rj4j3")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[connection signal="finished" from="get_gem_audio" to="." method="_on_get_gem_audio_finished"]

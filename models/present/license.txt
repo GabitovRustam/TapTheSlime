@@ -1,0 +1,11 @@
+Model Information:
+* title:	Present Low-poly
+* source:	https://sketchfab.com/3d-models/present-low-poly-52163e95890f419ca52af638d90ff901
+* author:	rzaletskyy (https://sketchfab.com/rzaletskyy)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Present Low-poly" (https://sketchfab.com/3d-models/present-low-poly-52163e95890f419ca52af638d90ff901) by rzaletskyy (https://sketchfab.com/rzaletskyy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

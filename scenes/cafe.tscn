@@ -1,0 +1,679 @@
+[gd_scene load_steps=14 format=3 uid="uid://bonkhcefg367r"]
+
+[ext_resource type="Texture2D" uid="uid://dhoj60f0pcfr2" path="res://textures/Shop/panel_brown.svg" id="1_35j1y"]
+[ext_resource type="Script" uid="uid://cwlc0pg3ms672" path="res://scripts/cafe.gd" id="1_adix5"]
+[ext_resource type="Texture2D" uid="uid://cp137o5yyqiet" path="res://textures/Shop/banner_classic_curtain.svg" id="2_adix5"]
+[ext_resource type="Texture2D" uid="uid://q8gb70bu82g0" path="res://textures/Cafe/max.svg" id="4_ihqf0"]
+[ext_resource type="Texture2D" uid="uid://dsmhsse04nu8m" path="res://textures/Cafe/pattern_diagonal_transparent_large.png" id="4_un8g3"]
+[ext_resource type="Texture2D" uid="uid://blsygoxee0x0u" path="res://textures/Cafe/1st.png" id="5_nvp3i"]
+[ext_resource type="Texture2D" uid="uid://bcuqvpaqyvow8" path="res://textures/Cafe/cloudtips.svg" id="5_un8g3"]
+[ext_resource type="Texture2D" uid="uid://cbx5dgsivh2h8" path="res://textures/Cafe/2nd.png" id="6_yybv8"]
+[ext_resource type="Texture2D" uid="uid://cn3caxeyhrlpn" path="res://textures/Cafe/3rd.png" id="7_a40kn"]
+[ext_resource type="Texture2D" uid="uid://clcsgdaoa8gr7" path="res://textures/Shop/button_red_close.svg" id="24_q1cjh"]
+[ext_resource type="AudioStream" uid="uid://c0sj4l8ib1lt7" path="res://sounds/close.mp3" id="25_7j7cw"]
+[ext_resource type="AudioStream" uid="uid://babclp442a0d2" path="res://sounds/buy.mp3" id="26_4ffd8"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nvf5v"]
+grow_begin = -15.0
+grow_end = -15.0
+thickness = 3
+
+[node name="Cafe" type="Popup"]
+auto_translate_mode = 1
+transparent_bg = true
+initial_position = 1
+size = Vector2i(450, 800)
+visible = true
+always_on_top = true
+transparent = true
+script = ExtResource("1_adix5")
+
+[node name="Cafe" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Cafe"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Cafe/MarginContainer"]
+layout_mode = 2
+mouse_filter = 0
+texture = ExtResource("1_35j1y")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cafe/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_right = 50
+
+[node name="TextureRect" type="TextureRect" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer2"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_adix5")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 7
+
+[node name="Label" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer2/MarginContainer"]
+z_index = 2
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Кафе"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "Вы в топе: "
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="TextureRect" type="TextureRect" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("4_un8g3")
+stretch_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+columns = 5
+
+[node name="Label" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "⚔️"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "🧒"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "💎"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "🟡"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="MyPosition" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+
+[node name="MyName" type="LineEdit" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 28
+
+[node name="MyGems" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="MyCoins" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="Refresh" type="Button" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "🔄"
+
+[node name="HSeparator" type="HSeparator" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nvf5v")
+
+[node name="Label2" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "Топ 10:"
+horizontal_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="TextureRect" type="TextureRect" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("4_un8g3")
+stretch_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 5
+
+[node name="Label" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "⚔️"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "🧒"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "💎"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "🟡"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_nvp3i")
+expand_mode = 1
+
+[node name="NamePlayer1" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.835294, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Пусто"
+
+[node name="GemsPlayer1" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.835294, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="CoinsPlayer1" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.835294, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_yybv8")
+expand_mode = 1
+
+[node name="NamePlayer2" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.752941, 0.752941, 0.752941, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 28
+text = "Пусто"
+
+[node name="GemsPlayer2" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.752941, 0.752941, 0.752941, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 1
+
+[node name="CoinsPlayer2" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.752941, 0.752941, 0.752941, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="TextureRect3" type="TextureRect" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+texture = ExtResource("7_a40kn")
+expand_mode = 1
+
+[node name="NamePlayer3" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.913725, 0.466667, 0.0235294, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 26
+text = "Пусто"
+
+[node name="GemsPlayer3" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.913725, 0.466667, 0.0235294, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 26
+text = "0"
+horizontal_alignment = 1
+
+[node name="CoinsPlayer3" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.913725, 0.466667, 0.0235294, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 26
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="PositionPlayer4" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "4"
+horizontal_alignment = 1
+
+[node name="NamePlayer4" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Пусто"
+
+[node name="GemsPlayer4" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="CoinsPlayer4" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="PositionPlayer5" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "5"
+horizontal_alignment = 1
+
+[node name="NamePlayer5" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Пусто"
+
+[node name="GemsPlayer5" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="CoinsPlayer5" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="PositionPlayer6" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "6"
+horizontal_alignment = 1
+
+[node name="NamePlayer6" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Пусто"
+
+[node name="GemsPlayer6" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="CoinsPlayer6" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="PositionPlayer7" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "7"
+horizontal_alignment = 1
+
+[node name="NamePlayer7" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Пусто"
+
+[node name="GemsPlayer7" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="CoinsPlayer7" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label12" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="PositionPlayer8" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "8"
+horizontal_alignment = 1
+
+[node name="NamePlayer8" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Пусто"
+
+[node name="GemsPlayer8" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="CoinsPlayer8" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label13" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="PositionPlayer9" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "9"
+horizontal_alignment = 1
+
+[node name="NamePlayer9" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Пусто"
+
+[node name="GemsPlayer9" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="CoinsPlayer9" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label14" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="PositionPlayer10" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10"
+horizontal_alignment = 1
+
+[node name="NamePlayer10" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Пусто"
+
+[node name="GemsPlayer10" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="CoinsPlayer10" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label15" type="Label" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer5/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="HSeparator2" type="HSeparator" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nvf5v")
+
+[node name="MarginContainer" type="MarginContainer" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MaxButton" type="Button" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+icon = ExtResource("4_ihqf0")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Control" type="Control" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloudTipsButton" type="Button" parent="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(144, 32)
+layout_mode = 2
+icon = ExtResource("5_un8g3")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Cafe"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 40
+
+[node name="Close" type="Button" parent="Cafe/MarginContainer3"]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+icon = ExtResource("24_q1cjh")
+flat = true
+icon_alignment = 1
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="Cafe"]
+unique_name_in_owner = true
+stream = ExtResource("25_7j7cw")
+
+[node name="BuySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_4ffd8")
+
+[connection signal="text_submitted" from="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer/MyName" to="." method="_on_my_name_text_submitted"]
+[connection signal="pressed" from="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer4/GridContainer/Refresh" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer/HBoxContainer/MaxButton" to="." method="_on_max_button_pressed"]
+[connection signal="pressed" from="Cafe/MarginContainer/NinePatchRect/VBoxContainer/MarginContainer/HBoxContainer/CloudTipsButton" to="." method="_on_cloud_tips_button_pressed"]
+[connection signal="pressed" from="Cafe/MarginContainer3/Close" to="." method="_on_close_pressed"]
+[connection signal="finished" from="Cafe/CloseSound" to="." method="_on_close_sound_finished"]

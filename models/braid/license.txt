@@ -1,0 +1,11 @@
+Model Information:
+* title:	Braid | Коса
+* source:	https://sketchfab.com/3d-models/braid-f7f166053bb24f39a3325261bedcb0b0
+* author:	AlexSerb (https://sketchfab.com/AlexSerb)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Braid | Коса" (https://sketchfab.com/3d-models/braid-f7f166053bb24f39a3325261bedcb0b0) by AlexSerb (https://sketchfab.com/AlexSerb) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
