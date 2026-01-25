@@ -1,6 +1,5 @@
 extends Popup
 
-@export var game_manager: Node
 @onready var close_sound: AudioStreamPlayer = %CloseSound
 @onready var my_name: LineEdit = %MyName
 @onready var my_position: Label = %MyPosition
@@ -8,7 +7,7 @@ extends Popup
 @onready var my_coins: Label = %MyCoins
 
 func update_top() -> void:
-	var response_json = game_manager.get_last_response()
+	var response_json = GameManager.get_last_response()
 	if response_json != null:
 		my_position.text = str(int(response_json.player_position))
 		my_gems.text = str(int(response_json.player.gems))
@@ -28,12 +27,12 @@ func update_top() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	my_name.text = game_manager.user_name
-	my_gems.text = str(game_manager.gems)
-	my_coins.text = str(game_manager.coins)
-	game_manager.request_completed.connect(_on_request_completed)
+	my_name.text = GameManager.user_name
+	my_gems.text = str(GameManager.gems)
+	my_coins.text = str(GameManager.coins)
+	GameManager.request_completed.connect(_on_request_completed)
 	update_top()
-	game_manager.get_lidership()
+	GameManager.get_lidership()
 
 func _on_request_completed() -> void:
 	update_top()
@@ -61,10 +60,11 @@ func _on_cloud_tips_button_pressed() -> void:
 
 
 func _on_refresh_pressed() -> void:
-	game_manager.get_lidership() 
+	GameManager.get_lidership() 
 
 
 func _on_my_name_text_submitted(new_text: String) -> void:
-	my_name.text = my_name.text.substr(0, 15)
-	game_manager.user_name = my_name.text
-	game_manager.get_lidership()
+	if my_name.text:
+		my_name.text = my_name.text.substr(0, 15)
+		GameManager.user_name = my_name.text
+		GameManager.get_lidership()

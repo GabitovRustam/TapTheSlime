@@ -4,7 +4,6 @@ extends Node
 @export var speed: int
 @export var delay: float
 @export var gem_probability: float
-@export var game_manager: Node
 
 signal finished
 signal gem_finished
@@ -35,7 +34,7 @@ func _process(delta: float) -> void:
 	if coins_num > 0 && timer <= 0:
 		timer = delay
 		started.emit()
-		var probability = gem_probability * game_manager.gem_probability
+		var probability = gem_probability * GameManager.gem_probability
 		if probability > 0.2:
 			probability = 0.2
 		if randf_range(0, 1) > probability:
@@ -55,11 +54,11 @@ func _process(delta: float) -> void:
 			new_gem.start()
 	
 func _on_coin_finished() -> void:
-	if game_manager.music_mode != 0:
+	if GameManager.music_mode != 0:
 		Input.vibrate_handheld(50, 1.0)
 	finished.emit()
 
 func _on_gem_finished() -> void:
-	if game_manager.music_mode != 0:
+	if GameManager.music_mode != 0:
 		Input.vibrate_handheld(100, 1.0)
 	gem_finished.emit()

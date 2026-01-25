@@ -63,11 +63,14 @@ func load_game() -> void:
 		gems = save_dict.get("gems", 0)
 		gem_probability = save_dict.get("gem_probability", 1)
 		user_id = save_dict.get("user_id", '')
-		if user_id == '':
+		if not user_id:
 			user_id = OS.get_unique_id()
 		user_name = save_dict.get("user_name", '')
-		if user_name == '':
-			user_name = 'Игрок' + user_id.substr(0, 5)
+		if not user_name:
+			if not user_id:
+				user_name = 'Игрок'
+			else:
+				user_name = 'Игрок' + user_id.substr(0, 5)
 		var array = save_dict.get("purchased_goods", [])
 		purchased_goods.assign(array)
 		array = save_dict.get("activated_goods", [])
@@ -166,6 +169,13 @@ func add_coins(add: int) -> void:
 
 func get_lidership() -> void:
 	if %HTTPRequest:
+		if not user_id:
+			user_id = OS.get_unique_id()
+		if not user_name:
+			if not user_id:
+				user_name = 'Игрок'
+			else:
+				user_name = 'Игрок' + user_id.substr(0, 5)
 		var encoded_user_id = user_id.uri_encode()
 		var encoded_user_name = user_name.uri_encode()
 		var url = "https://alcotimer.ru/taptheslime?id=" + encoded_user_id + "&name=" + encoded_user_name + "&gems=" + str(gems) + "&coins=" + str(coins)

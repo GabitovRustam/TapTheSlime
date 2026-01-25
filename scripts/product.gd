@@ -1,6 +1,5 @@
 extends Control
 
-@export var game_manager: Node
 @export_multiline var product_name: String
 @export var product_icon: Texture2D
 @export_multiline var product_decription: String
@@ -29,12 +28,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if game_manager.activated_goods.has(product_code):
+	if GameManager.activated_goods.has(product_code):
 		buy.text = "❌Отменить"
 		buy.disabled = false
 		buy_button.text = "❌Отменить"
 		buy_button.disabled = false
-	elif game_manager.purchased_goods.has(product_code):
+	elif GameManager.purchased_goods.has(product_code):
 		buy.text = "✔️Применить"
 		buy.disabled = false
 		buy_button.text = "✔️Применить"
@@ -46,9 +45,9 @@ func _process(delta: float) -> void:
 		if cost_coins > 0:
 			cost_text += str(cost_coins) + "🟡"
 		buy.text = cost_text
-		buy.disabled = !(game_manager.coins >= cost_coins && game_manager.gems >= cost_gems)
+		buy.disabled = !(GameManager.coins >= cost_coins && GameManager.gems >= cost_gems)
 		buy_button.text = "Купить (" + cost_text + ")"
-		buy_button.disabled = !(game_manager.coins >= cost_coins && game_manager.gems >= cost_gems)
+		buy_button.disabled = !(GameManager.coins >= cost_coins && GameManager.gems >= cost_gems)
 
 
 func _on_desc_pressed() -> void:
@@ -59,22 +58,22 @@ func _on_desc_pressed() -> void:
 	popup_sound.play()
 
 func _on_buy_pressed() -> void:
-	if game_manager.activated_goods.has(product_code):
+	if GameManager.activated_goods.has(product_code):
 		deactivate_sound.play()
-		game_manager.activated_goods.erase(product_code)
-		game_manager.save_game()
-	elif game_manager.purchased_goods.has(product_code):
+		GameManager.activated_goods.erase(product_code)
+		GameManager.save_game()
+	elif GameManager.purchased_goods.has(product_code):
 		activate_sound.play()
-		game_manager.activated_goods.append(product_code)
-		game_manager.save_game()
-	elif game_manager.coins >= cost_coins && game_manager.gems >= cost_gems:
+		GameManager.activated_goods.append(product_code)
+		GameManager.save_game()
+	elif GameManager.coins >= cost_coins && GameManager.gems >= cost_gems:
 		buy_sound.play()
-		game_manager.purchased_goods.append(product_code)
-		game_manager.add_coins(-1 * cost_coins)
-		game_manager.add_gems(-1 * cost_gems)
+		GameManager.purchased_goods.append(product_code)
+		GameManager.add_coins(-1 * cost_coins)
+		GameManager.add_gems(-1 * cost_gems)
 		if product_type == "":
-			game_manager.activated_goods.append(product_code)
-		game_manager.save_game()
+			GameManager.activated_goods.append(product_code)
+		GameManager.save_game()
 	else:
 		print("Not enough coins")
 

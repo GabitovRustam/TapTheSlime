@@ -21,6 +21,7 @@ thickness = 3
 [node name="Cafe" type="Popup"]
 auto_translate_mode = 1
 transparent_bg = true
+oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(450, 800)
 visible = true
